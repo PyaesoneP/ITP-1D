@@ -19,7 +19,7 @@ import mylibrary
 ## The key attribute enables you to retrieve the data entered for that widget from st.session_state 
 ## ------------------------------------------------------------------------------------
 
-
+st.write("SC9 GP10")
 st.write("Tales of Lanfang Tickets")
 st.number_input("Number of adults", min_value=0, max_value=10, step=1, key="adults")
 st.number_input("Number of children", min_value=0, max_value=10, step=1, key="children")

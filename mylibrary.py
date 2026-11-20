@@ -10,11 +10,13 @@
 def calculate_total( adults, children ):
     ADULT_PRICE = 10
     CHILD_PRICE = 5
-    return 1, 1
+    return adults * ADULT_PRICE, children * CHILD_PRICE
 
 def audio_guides(items): 
     PRICE_PER_ITEM = 3
-    return 0
+    return PRICE_PER_ITEM * items
+
+
 
 ## Make It Yours ---------------------------------------------------------------------
 ## You are now ready to design your own ticketing scheme 
