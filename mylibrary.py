@@ -8,13 +8,19 @@
 ## ------------------------------------------------------------------------------------
 
 def calculate_total( adults, children ):
-    ADULT_PRICE = 10
-    CHILD_PRICE = 5
-    return adults * ADULT_PRICE, children * CHILD_PRICE
+    adults_price = 10
+    children_price =  5
+    return adults * adults_price, children * children_price
+    
 
 def audio_guides(items): 
-    PRICE_PER_ITEM = 3
-    return PRICE_PER_ITEM * items
+    audio_guide_price = 3
+    return audio_guide_price * items
+    
+
+def peak_hours(adults, children):
+    PEAK_HOUR_SURCHARGE = 2
+    return adults *10*PEAK_HOUR_SURCHARGE , children * 5 * PEAK_HOUR_SURCHARGE
 
 
 

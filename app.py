@@ -46,19 +46,36 @@ if st.button('Get Total'):
     adults = st.session_state.adults
     children = st.session_state.children 
     rental = st.session_state.rental 
+    
+   
+    if ticket_type == "Peak":
+        adults_price, children_price = mylibrary.peak_hours(adults, children)
+        guides_cost = mylibrary.audio_guides(st.session_state.rental)
+        total_price = adults_price + children_price + guides_cost
 
-    adults_price, children_price = mylibrary.calculate_total(adults,children)
-    guides_cost = mylibrary.audio_guides(st.session_state.rental)
-
-    total_price = adults_price + children_price + guides_cost
-
-    data = {"Total Price for Adults": adults_price,
+        data = {"Total Price for Adults": adults_price,
             "Total Price for Children": children_price, 
             "ticket_type": ticket_type,
             "audio_guides cost": guides_cost,
-            "Total you have to pay": total_price
+            "Total you have to pay": total_price,
             }
 
-    st.table(data)
+        st.table(data)
+    else:
+        st.write("You have selected Off-Peak Ticket. No surcharge will be applied.")
+        adults_price, children_price = mylibrary.calculate_total(adults, children)
+        guides_cost = mylibrary.audio_guides(st.session_state.rental)
+        total_price = adults_price + children_price + guides_cost
+
+        data = {"Total Price for Adults": adults_price,
+            "Total Price for Children": children_price, 
+            "ticket_type": ticket_type,
+            "audio_guides cost": guides_cost,
+            "Total you have to pay": total_price,
+            }
+
+        st.table(data)
+
+
 else:
     st.write('Please Key In The Quantity')
