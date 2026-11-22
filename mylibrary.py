@@ -8,21 +8,23 @@
 ## ------------------------------------------------------------------------------------
 
 def calculate_total( adults, children ):
-    adults_price = 10
-    children_price =  5
-    return adults * adults_price, children * children_price
-    
+    Adults_Price = 10
+    Children_Price =  5
+    return adults * Adults_Price, children * Children_Price
+
 
 def audio_guides(items): 
-    audio_guide_price = 3
-    return audio_guide_price * items
+    Audio_Guide_Price = 3
+    return Audio_Guide_Price * items
     
+def get_peak_prices(adults, children):
+    PEAK_SURCHARGE_RATE = 0.30
+    adults_total, children_total = calculate_total(adults, children)
 
-def peak_hours(adults, children):
-    PEAK_HOUR_SURCHARGE = 2
-    return adults *10*PEAK_HOUR_SURCHARGE , children * 5 * PEAK_HOUR_SURCHARGE
+    adults_peak_total = adults_total * (1 + PEAK_SURCHARGE_RATE)
+    children_peak_total = children_total * (1 + PEAK_SURCHARGE_RATE)
 
-
+    return adults_peak_total, children_peak_total
 
 ## Make It Yours ---------------------------------------------------------------------
 ## You are now ready to design your own ticketing scheme 
