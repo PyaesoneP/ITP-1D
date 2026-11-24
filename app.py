@@ -32,6 +32,11 @@ ticket_type = st.radio(
 )
 st.write("Ticket Type Selected: ", ticket_type)
 
+foreigner_or_local=st.radio(
+    label= "Nationality",
+    options = ["Local", "Foreigner"]
+)
+st.write("Nationality: ",foreigner_or_local)
 
 ## Calculation -------------------------------------------------------------------------
 ## Shows you the code to 
@@ -53,6 +58,14 @@ if st.button("Get Total"):
     else:
         st.write("You have selected Off-Peak Ticket. No surcharge will be applied.")
         adults_price, children_price = mylibrary.calculate_total(adults, children)
+
+    if foreigner_or_local == "Local":
+        final_adults_price=adults_price
+        final_children_price=children_price
+
+    elif foreigner_or_local == "Foreigner":
+        final_adults_price=adults_price*2
+        final_children_price=children_price*1.5
 
     guides_cost = mylibrary.audio_guides(rental)
     total_price = adults_price + children_price + guides_cost
