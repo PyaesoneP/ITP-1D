@@ -68,11 +68,11 @@ if st.button("Get Total"):
         final_children_price=children_price*1.5
 
     guides_cost = mylibrary.audio_guides(rental)
-    total_price = adults_price + children_price + guides_cost
+    total_price = final_adults_price + final_children_price + guides_cost
 
     data = {
-        "Total Price for Adults": adults_price,
-        "Total Price for Children": children_price,
+        "Total Price for Adults": final_adults_price,
+        "Total Price for Children": final_children_price,
         "ticket_type": ticket_type,
         "audio_guides cost": guides_cost,
         "Total you have to pay": total_price,
